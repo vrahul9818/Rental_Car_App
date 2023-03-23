@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UserLogin = (props) => {
+const AdminLogin = (props) => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const url = "http://localhost:8080/car_rent/user/login";
+  const url = "http://localhost:8080/car_rent/admin/login";
   const handleSignin = () => {
     const obj = {
       Email: email,
@@ -18,7 +18,7 @@ const UserLogin = (props) => {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        navigate("/userBooking")
+        // navigate("/userBooking")
       })
       .catch((error) => {
         console.log(error);
@@ -27,7 +27,7 @@ const UserLogin = (props) => {
 
   return (
     <>
-      <div className="userLoginBox">
+      <div className="adminLoginBox">
         <h2>Sign in to your account</h2>
         <input
           type="email"
@@ -43,10 +43,9 @@ const UserLogin = (props) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p>Forgot your password?</p>
         <div className="signIN_creataccount">
         <p onClick={props.onCreateAccount} className="create_account">
-            Create an account
+            register admin account
         </p>
           <button onClick={handleSignin}>Sign in</button>
         </div>
@@ -55,4 +54,4 @@ const UserLogin = (props) => {
   );
 };
 
-export default UserLogin;
+export default AdminLogin;
