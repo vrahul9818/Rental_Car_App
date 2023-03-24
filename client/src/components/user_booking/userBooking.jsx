@@ -10,7 +10,6 @@ const UserBooking = () => {
   const navigate = useNavigate();
   const {  startDate, setStartDate ,endDate,setEndDate,origin,setOrigin,destination,setDestination } = useContext(DataContext);
   console.log(startDate)
-
   const handelcheck = () => {
     navigate("/userCarDisplay")
   };
@@ -19,18 +18,19 @@ const UserBooking = () => {
     <>
       <Navbar />
       <div
-        className="container"
+        className="containerU"
         style={{
           backgroundImage: `url(${carimage})`,
           backgroundSize: "cover",
           minHeight: "100vh",
         }}
       >
-        <div className="booking_date">
-          <p className="booking_heading">
+        <div className="booking_dateU">
+          <p className="booking_headingU">
             Main quote from the website be placed here for better understanding{startDate}{endDate}
           </p>
           <input
+            className="StartDateU"
             placeholder="Start Date"
             type="date"
             name="startDate"
@@ -38,6 +38,7 @@ const UserBooking = () => {
             onChange={(e) => setStartDate(e.target.value)}
           />
           <input
+          className="EndDateU"
             placeholder="End Date"
             type="date"
             name="endDate"
@@ -45,6 +46,7 @@ const UserBooking = () => {
             onChange={(e) => setEndDate(e.target.value)}
           />
           <input
+          className="originU"
             placeholder="origin"
             type="text"
             name="origin"
@@ -52,6 +54,7 @@ const UserBooking = () => {
             onChange={(e) => setOrigin(e.target.value)}
           />
            <input
+             className="destinationU"
             placeholder="destination"
             type="text"
             name="destination"
