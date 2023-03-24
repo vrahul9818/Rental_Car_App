@@ -26,19 +26,21 @@ const AdminCarForm = () => {
       images,
       carDetails,
     };
-    console.log(carName);
+
     console.log(data);
+
     // Send data as a POST request object
-    // fetch("/api/cars", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
-    //   .catch( ( error ) => console.error( error ) );
+    //   fetch("/api/cars", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+
+    //     body: JSON.stringify(data),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data))
+    //     .catch((error) => console.error(error));
   };
 
   return (
@@ -125,7 +127,10 @@ const AdminCarForm = () => {
           id='images'
           name='images'
           multiple
-          onChange={(e) => setImages(Array.from(e.target.files))}
+          onChange={(e) => {
+            const newImage = e.target.files[0];
+            setImages([...images, newImage]);
+          }}
         />
 
         <label htmlFor='car-details'>Car Details:</label>
