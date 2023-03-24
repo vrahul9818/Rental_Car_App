@@ -22,7 +22,6 @@ const UserCarDisplay = () => {
     <>
 
       <Navbar />
-
       <div className="second_bar">
           <p className="origin">{origin}</p>
           <p className="destination">{destination}</p>
@@ -40,24 +39,30 @@ const UserCarDisplay = () => {
           <option value="UV">UV</option>
           <option value="all">All</option>
           </select>
-        </div>)}
+        </div>)}    
+  </div>
+        <p className="Seating">Seating</p>
+        <p className="Milage">Milage</p>
+        <p className="Other">Other</p>
+</div>
+<div class="cardContainer">
+  <div class="card">
+    <img src={carImage} alt="Car" class="carImage" />
+    <div class="carDetailsTop">
+      <p class="carCapacity">6 passenger</p>
+      <div className="car_name_fare">
+      <p class="carName">innova</p>
+      <p class="carPerKm">Rs.200/km</p>
+      </div>
+     
+    </div>
+    <div class="carDetailsBottom">
+      <p class="fare">carfare</p>
+      <p class="bookNow">Book Now</p>
+    </div>
   </div>
 </div>
-<div className="cardContainer">
-  <div className="card">
-    <img src={carImage} alt="Car" className="carImage" />
-      <p className="carCapacity">6 passenger</p>
-      <div className="carDetailsBottom">
-        <p className="carName">innova</p>
-        <p className="carPerKm">Rs.200/km</p>
-     <div className="fareDetails">
-      <p className="fare">carfare</p>
-      <p className="bookNow">Book Now</p>
-    </div>
-    </div>
-  </div>
-</div>
-    </>
+  </>
   );
 };
 
