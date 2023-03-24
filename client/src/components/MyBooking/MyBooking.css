@@ -1,0 +1,103 @@
+.previous-bookings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .previous-bookings-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .booking-card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 90%;
+  }
+  
+  .booking-card img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: 50px;
+  }
+  
+  .car-details {
+    display: grid;
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
+    width: 20%;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .car-name {
+    flex-grow: 1;
+  }
+  
+  .destination-details {
+    display: grid;
+    /* flex-direction: column; */
+    text-align: justify;
+    width: 30%;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .origin-destination,
+  .destination {
+    margin-bottom: 5px;
+  }
+  
+  .booking-details {
+    display: grid;
+    width: 25%;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .booking-id,
+  .booking-date,
+  .booking-time {
+    margin-bottom: 5px;
+  }
+  
+  .booking-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .edit-button,
+  .cancel-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-button:hover,
+  .cancel-button:hover {
+    background-color: #0062cc;
+  }
+  

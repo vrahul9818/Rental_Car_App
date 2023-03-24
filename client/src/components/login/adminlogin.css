@@ -1,0 +1,77 @@
+.adminLoginBox {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .adminLoginBox h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .adminLoginBox input[type='email'],
+  .adminLoginBox input[type='password'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .adminLoginBox input[type='email']:focus,
+  .adminLoginBox input[type='password']:focus {
+    outline: none;
+    border-color: #6c63ff;
+  }
+  
+  .adminLoginBox button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .form-input {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  p{
+    color: #524ac9;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .adminLoginBox button:hover {
+    background-color: #524ac9;
+  }
+  
+  .signIN_creataccount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .create_account {
+    color: #6c63ff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .create_account:hover {
+    text-decoration: underline;
+  }
+  
+
+   
