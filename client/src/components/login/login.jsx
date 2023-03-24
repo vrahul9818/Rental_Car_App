@@ -4,9 +4,20 @@ import "./login.css";
 import UserSignup from "./usersignup";
 import UserLogin from "./userLogin";
 import Navbar from "../navbar/navbar";
+import AdminLogin from "./adminlogin";
+import AdminSignup from "./adminSignup";
 
 const Login = () => {
+  localStorage.setItem("token","");
   const [showSignup, setShowSignup] = useState(false);
+  const [showAdminSignup, setAdminShowSignup] = useState(false);
+  const handleAdminAccount = () => {
+    setAdminShowSignup(true);
+  };
+
+const handleAdminBackAccount = () => {
+  setAdminShowSignup(false);
+  };
   const handleCreateAccount = () => {
     setShowSignup(true);
   };
@@ -16,7 +27,6 @@ const Login = () => {
   return (
     <>
       <Navbar />
-
       <div
         className='container'
         style={{
@@ -24,8 +34,13 @@ const Login = () => {
           backgroundSize: "cover",
           minHeight: "100vh",
         }}>
-        <div className='admin_login'></div>
-
+        <div className='adminlogin'>
+          {showAdminSignup ? (
+            < AdminSignup onBackToLogin={handleAdminBackAccount} />
+          ) : (
+            <AdminLogin onCreateAccount={handleAdminAccount} />
+          )}
+        </div>
         <div className='userlogin'>
           {showSignup ? (
             <UserSignup onBackToLogin={handleBackToLogin} />

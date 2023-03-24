@@ -5,6 +5,7 @@ const cors = require("cors");
 
 //files imported 
 const userLoginSignup = require("./routes/signup_login_user")
+const adminLoginSignup = require("./routes/signup_login_admin")
 
 const app = express();
 
@@ -23,6 +24,7 @@ mongoose.connect(DB).then(()=>{console.log("connected to mongoose atlas")}).catc
 
 //routes
 app.use("/car_rent",userLoginSignup);
+app.use("/car_rent",adminLoginSignup)
 
 
 //server

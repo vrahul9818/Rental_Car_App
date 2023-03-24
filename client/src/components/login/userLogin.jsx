@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UserLogin = (props) => {
-   
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +18,7 @@ const UserLogin = (props) => {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        console.log(localStorage.getItem("token"));
+        navigate("/userBooking")
       })
       .catch((error) => {
         console.log(error);
