@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './adminlogin.css'
 
 const AdminLogin = (props) => {
   const navigate = useNavigate();
@@ -30,25 +31,32 @@ const AdminLogin = (props) => {
     <>
       <div className='adminLoginBox'>
         <h2>Sign in to your account</h2>
-        <input
-          type='email'
-          placeholder='Email'
-          name='Email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          name='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className='signIN_creataccount'>
-          <p onClick={props.onCreateAccount} className='create_account'>
-            register admin account
+        <div className="form-input">
+          <input
+            type='email'
+            placeholder='Email'
+            name='Email'
+            className="admin-email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-input">
+          <input
+            type='password'
+            placeholder='Password'
+            name='Password'
+            className="admin-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        
+        <div className='signIn_createaccount'>
+          <p onClick={props.onCreateAccount} className='create-admin-account'>
+            Register admin account
           </p>
-          <button onClick={handleSignin}>Sign in</button>
+          <button className="admin-sign" onClick={handleSignin}>Sign in</button>
         </div>
       </div>
     </>
