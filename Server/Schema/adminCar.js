@@ -11,7 +11,8 @@ const adminCarSchema = new Schema({
   availableTo: {type: Date},
   description: {type: String,required: true,},
   images: {type: [String]},
-  carDetails: {type: String,required: false,}
+  carDetails: {type: String},
+  Admin_id:{type: String}
 });
 
 const AdminCarModel = mongoose.model('Cars',adminCarSchema);
