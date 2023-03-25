@@ -2,10 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fileupload = require("express-fileupload");
+const path = require("path");
 
 //files imported 
 const userLoginSignup = require("./routes/signup_login_user")
 const adminLoginSignup = require("./routes/signup_login_admin")
+const testAdminData    = require("./routes/testAdminData")
 
 const app = express();
 
@@ -17,6 +20,7 @@ const DB = "mongodb+srv://CarRental:CarRental@carrental.q7afrjf.mongodb.net/?ret
 //middle ware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(fileupload())
 
 //connections 
 mongoose.connect(DB).then(()=>{console.log("connected to mongoose atlas")}).catch((err)=>{console.log(err,"no connection")});
@@ -24,7 +28,8 @@ mongoose.connect(DB).then(()=>{console.log("connected to mongoose atlas")}).catc
 
 //routes
 app.use("/car_rent",userLoginSignup);
-app.use("/car_rent",adminLoginSignup)
+app.use("/car_rent",adminLoginSignup);
+app.use("/car_rent",testAdminData);
 
 
 //server
