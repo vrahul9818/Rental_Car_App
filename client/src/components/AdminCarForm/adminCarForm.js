@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const AdminCarForm = () => {
+  console.log(localStorage.getItem("token_admin"));
   // const navigate = useNavigate();
   const [carName, setCarName] = useState("");
   const [carType, setCarType] = useState("");
@@ -26,6 +27,7 @@ const AdminCarForm = () => {
     formData.append("availableFrom", availableFrom);
     formData.append("availableTo", availableTo);
     formData.append("description", description);
+    formData.append("adminToken",localStorage.getItem("token_admin"))
     images.forEach((image) => {
       formData.append("images", image);
     });

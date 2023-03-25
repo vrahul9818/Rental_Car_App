@@ -17,9 +17,7 @@ const AdminLogin = (props) => {
     axios
       .post(url, obj)
       .then((response) => {
-        console.log(response.data);
-        localStorage.setItem("token", response.data.token);
-        // navigate("/userBooking")
+       localStorage.setItem("token_admin", response.data.token);
       })
       .catch((error) => {
         console.log(error);
