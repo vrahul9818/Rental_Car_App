@@ -56,8 +56,9 @@ router.post("/admin/login", async(req, res) => {
     }
     const token  = jwt.sign({
         exp: Math.floor(Date.now() / 1000) + (60 * 60*60),
-        data: {Email :AdminModel.Email,Name :AdminModel.Name,unique_id:user._id}
+        data: {unique_id:user._id,Name:user.Name}
       }, SECRET_ID);
+      
       res.status(200).json({
         status : "SUCESS",
         token : token
