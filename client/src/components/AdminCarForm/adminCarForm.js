@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const AdminCarForm = () => {
   console.log(localStorage.getItem("token_admin"));
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [carName, setCarName] = useState("");
   const [carType, setCarType] = useState("");
   const [model, setModel] = useState("");
@@ -45,7 +45,7 @@ const AdminCarForm = () => {
     formData.forEach((key)=>{
       console.log(key)
     })
-    // navigate("/AdminForm");
+    navigate("/AdminCarDisplay");
   };
   return (
     <div>

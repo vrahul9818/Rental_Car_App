@@ -6,6 +6,7 @@ import { DataProvider } from "../src/components/user_booking/user_data_context";
 import UserCarDisplay from "./components/userCarDisplay/userCarDisplay";
 import AdminCarForm from "./components/AdminCarForm/adminCarForm";
 import MyBooking from "./components/MyBooking/MyBooking";
+import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/checkRoute' element={<CheckRoutes />} />
           <Route path='/AdminForm' element={<AdminCarForm />} />
+          <Route path='/AdminCarDisplay' element={<AdminCarDisplay/>} />
           <Route
             path='/userBooking'
             element={

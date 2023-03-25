@@ -9,6 +9,7 @@ import AdminSignup from "./adminSignup";
 
 const Login = () => {
   localStorage.setItem("token","");
+  localStorage.setItem("token_admin","");
   const [showSignup, setShowSignup] = useState(false);
   const [showAdminSignup, setAdminShowSignup] = useState(false);
   const handleAdminAccount = () => {

@@ -74,4 +74,26 @@ const decoded = jwt.verify(req.body.adminToken, SECRET_ID);
     });
 });
 
+//////router get for displaying admin cars////
+
+router.get('/adminCarData', async (req, res) => {
+    try {
+      console.log(req.headers.authorization,"autherization");
+      const token = req.headers.authorization.split('Bearer')[1];
+      console.log(token,"token")
+      const decoded = jwt.verify(token, SECRET_ID);
+      console.log(decoded.data,"decodedData");
+      const uniqueId = decoded.data.unique_id;
+      const name = decoded.data.Name;
+      const carBookingData = await AdminCarModel.find({ Admin_id: uniqueId });
+     
+
+      res.status(201).send({carBookingData,name});
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Error fetching data');
+    }
+  });
+
+
 module.exports = router;
