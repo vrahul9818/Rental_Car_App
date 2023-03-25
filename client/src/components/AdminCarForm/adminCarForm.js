@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const AdminCarForm = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [carName, setCarName] = useState("");
   const [carType, setCarType] = useState("");
   const [model, setModel] = useState("");
@@ -12,39 +13,38 @@ const AdminCarForm = () => {
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
   const [carDetails, setCarDetails] = useState("");
-
+  const url = "http://localhost:8080/car_rent/adminCarData";
   const handleSubmit = (e) => {
+   
     e.preventDefault();
-    const data = {
-      carName,
-      carType,
-      model,
-      mileage,
-      perKm,
-      availableFrom,
-      availableTo,
-      description,
-      images,
-      carDetails,
-    };
+    const formData = new FormData();
+    formData.append("carName", carName);
+    formData.append("carType", carType);
+    formData.append("model", model);
+    formData.append("mileage", mileage);
+    formData.append("perKm", perKm);
+    formData.append("availableFrom", availableFrom);
+    formData.append("availableTo", availableTo);
+    formData.append("description", description);
+    images.forEach((image) => {
+      formData.append("images", image);
+    });
+    formData.append("carDetails", carDetails);
+    axios
+      .post(url, formData)
+      .then((response) => {
+        console.log(response.data,"response axios");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(formData);
 
-    console.log(data);
-
-    // Send data as a POST request object
-    //   fetch("/api/cars", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-
-    //     body: JSON.stringify(data),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data))
-    //     .catch((error) => console.error(error));
-    navigate("/AdminForm");
+    formData.forEach((key)=>{
+      console.log(key)
+    })
+    // navigate("/AdminForm");
   };
-
   return (
     <div>
       <h2>Add Car Details</h2>
@@ -57,7 +57,6 @@ const AdminCarForm = () => {
           value={carName}
           onChange={(e) => setCarName(e.target.value)}
         />
-
         <label htmlFor='car-type'>Car Type:</label>
         <select
           id='car-type'
@@ -69,7 +68,6 @@ const AdminCarForm = () => {
           <option value='SUV'>SUV</option>
           <option value='Hatchback'>Hatchback</option>
         </select>
-
         <label htmlFor='model'>Model:</label>
         <select
           id='model'
@@ -98,7 +96,6 @@ const AdminCarForm = () => {
           value={perKm}
           onChange={(e) => setPerKm(e.target.value)}
         />
-
         <label htmlFor='available-from'>Available From:</label>
         <input
           type='date'
@@ -107,7 +104,6 @@ const AdminCarForm = () => {
           value={availableFrom}
           onChange={(e) => setAvailableFrom(e.target.value)}
         />
-
         <label htmlFor='available-to'>Available To:</label>
         <input
           type='date'
@@ -116,7 +112,6 @@ const AdminCarForm = () => {
           value={availableTo}
           onChange={(e) => setAvailableTo(e.target.value)}
         />
-
         <label htmlFor='description'>Description:</label>
         <textarea
           id='description'
@@ -134,9 +129,7 @@ const AdminCarForm = () => {
             setImages([...images, newImage]);
           }}
         />
-
         <label htmlFor='car-details'>Car Details:</label>
-
         <textarea
           id='car-details'
           name='carDetails'

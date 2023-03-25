@@ -6,6 +6,7 @@ import { DataProvider } from "../src/components/user_booking/user_data_context";
 import UserCarDisplay from "./components/userCarDisplay/userCarDisplay";
 import AdminCarForm from "./components/AdminCarForm/adminCarForm";
 import MyBooking from "./components/MyBooking/MyBooking";
+
 function App() {
   return (
     <div className='App'>
