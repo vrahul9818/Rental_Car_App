@@ -1,0 +1,104 @@
+* {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .adminCarcontainer {
+    height: 100vh;
+    margin: 30px;
+    background-color: #F0F8FF;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hello_admin_name {
+    height: 60px;
+    background-color: #F0F8FF;
+  }
+  
+  .car_add_CarButton {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F8FF;
+  }
+  
+  .car_name {
+    margin-left: 40px;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .addCar {
+    margin: 10px;
+  }
+  
+  .admin_car_card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: #F0F8FF;
+  }
+  
+  .car_card {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5), 0px 8px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+  }
+  
+  
+  
+  .car_image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+  }
+  
+  .car_image img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+  
+  .car_passenger {
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+  }
+  
+  .car_detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .carName {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .car_price {
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+  }
+  
+  .available_from,
+  .available_to {
+    margin-top: 5px;
+    font-size: 12px;
+    color: gray;
+  }
+  
