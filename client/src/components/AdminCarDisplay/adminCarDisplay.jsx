@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./admincarDisplay.css"
 import { useNavigate } from "react-router-dom";
+import Navbar from "../navbar/navbar"
 
 const AdminCarDisplay = () => {
   const navigate = useNavigate();
@@ -36,9 +37,9 @@ const AdminCarDisplay = () => {
   return (
     <div>
     <div className="adminNavbar">
-      navbar
+      {<Navbar/>}
     </div>
-    <div className="container">
+    <div className="adminCarcontainer">
       <div className="hello_admin_name">
       <h1 className="Admin_name">{`Hello ${name}`}</h1>
       </div>
@@ -49,7 +50,7 @@ const AdminCarDisplay = () => {
       </div>
       <div className="admin_car_card">
         {
-          data.map((key , index )=>{
+          data.map((key,index)=>{
             return(<>
             <div className="car_card">
             <img className="car_image" src={url+`/images/${key?.images[0]}`}
@@ -62,8 +63,6 @@ const AdminCarDisplay = () => {
            <p className="available_from">{key.availableFrom}</p>
   <p className="available_to">{key.availableTo}</p>
 </div>
-
-
             </>)
           })
         }
