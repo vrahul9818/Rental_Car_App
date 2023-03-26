@@ -86,14 +86,21 @@ router.get('/adminCarData', async (req, res) => {
       const uniqueId = decoded.data.unique_id;
       const name = decoded.data.Name;
       const carBookingData = await AdminCarModel.find({ Admin_id: uniqueId });
-     
-
       res.status(201).send({carBookingData,name});
     } catch (error) {
       console.log(error);
       res.status(500).send('Error fetching data');
     }
   });
+
+
+  ////////////image send////////
+
+
+   router.get('/adminCarData/images/:filename',async(req,res)=>{
+    
+    res.sendFile(path.join(__dirname, '..', `/imageUpload/${req.params.filename}`))
+ })
 
 
 module.exports = router;
