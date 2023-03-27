@@ -1,0 +1,53 @@
+.userSignup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .userSignupBox {
+    width: 400px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .userSignupBox h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .userSignup-input {
+    margin-bottom: 15px;
+  }
+  
+  .userSignup-input input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .userSignup-input input:focus {
+    outline: none;
+    border-color: #6b9ce8;
+  }
+  
+  .sign-btn {
+    background-color: #6b9ce8;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .sign-btn:hover {
+    background-color: #4c7bd9;
+  }
+  

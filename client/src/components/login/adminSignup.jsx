@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './adminsignup.css'
 
 const AdminSignup = (props) => {
   const [name, setName] = useState("");
@@ -33,35 +34,50 @@ const AdminSignup = (props) => {
     <div className="adminSignup">
       <div className="adminSignupBox">
         <h2>Sign up for an admin account</h2>
-        <input
-          type="text"
-          placeholder="Name"
-          name="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          name="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button onClick={handleSignup}>Sign up</button>
+        <div className="admin-input">
+          <input
+            type="text"
+            placeholder="Name"
+            name="Name"
+            className="adminsignup-name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="admin-input">
+          <input
+            type="email"
+            placeholder="Email"
+            name="Email"
+            className="adminsignup-email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        
+        <div className="admin-input">
+          <input
+            type="password"
+            placeholder="Password"
+            className="adminsignup-password"
+            name="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        
+        <div className="admin-input">
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="Confirm Password"
+            className="adminsignup-confirmpassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        
+        <button className="signup-btn" onClick={handleSignup}>Sign up</button>
       </div>
     </div>
   );

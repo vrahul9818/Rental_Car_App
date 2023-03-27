@@ -1,0 +1,68 @@
+.userLoginBox {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .userLoginBox h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .userlogin-input {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .userlogin-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .create-acc{
+    display: flex;
+    gap: 20px;
+  }
+  
+  .userlogin-input input:focus {
+    outline: none;
+    border-color: #6b9ce8;
+  }
+  
+  p {
+    text-align: center;
+    cursor: pointer;
+    color: #6b9ce8;
+    font-size: 14px;
+  }
+  
+  .create_account:hover {
+    text-decoration: underline;
+  }
+  
+  .signIN_creataccount {
+    text-align: center;
+  }
+  
+  .sign-btn {
+    background-color: #6b9ce8;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .sign-btn:hover {
+    background-color: #4c7bd9;
+  }
+  
