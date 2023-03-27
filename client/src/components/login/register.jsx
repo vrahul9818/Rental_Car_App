@@ -14,24 +14,23 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const Login = () => {
+const Register = () => {
   localStorage.setItem("token","");
-  localStorage.setItem("token_admin","");
-  const [showSignup, setShowSignup] = useState(false);
-  const [showAdminSignup, setAdminShowSignup] = useState(false);
-  const handleAdminAccount = () => {
-    setAdminShowSignup(true);
-  };
+//   const [showSignup, setShowSignup] = useState(false);
+//   const [showAdminSignup, setAdminShowSignup] = useState(false);
+//   const handleAdminAccount = () => {
+//     setAdminShowSignup(true);
+//   };
 
-  const handleAdminBackAccount = () => {
-  setAdminShowSignup(false);
-  };
-  const handleCreateAccount = () => {
-    setShowSignup(true);
-  };
-  const handleBackToLogin = () => {
-    setShowSignup(false);
-  };
+//   const handleAdminBackAccount = () => {
+//   setAdminShowSignup(false);
+//   };
+//   const handleCreateAccount = () => {
+//     setShowSignup(true);
+//   };
+//   const handleBackToLogin = () => {
+//     setShowSignup(false);
+//   };
 
   // const handleAdminLogin =()=> {
   //   setShowSignup(true)
@@ -98,16 +97,16 @@ const Login = () => {
       <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Admin Login" {...a11yProps(0)} />
-          <Tab label="Admin Register" {...a11yProps(1)} />
+          <Tab label="User Login" {...a11yProps(0)} />
+          <Tab label="User Register" {...a11yProps(1)} />
           
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <AdminLogin/>
+        <UserLogin/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-       <AdminSignup/>
+       <UserSignup/>
       </TabPanel>
       
     </Box>
@@ -128,4 +127,4 @@ const Login = () => {
     </>
   );
 };
-export default Login;
+export default Register;

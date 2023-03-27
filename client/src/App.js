@@ -7,6 +7,7 @@ import UserCarDisplay from "./components/userCarDisplay/userCarDisplay";
 import AdminCarForm from "./components/AdminCarForm/adminCarForm";
 import MyBooking from "./components/MyBooking/MyBooking";
 import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
+import Register from "./components/login/register";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/checkRoute' element={<CheckRoutes />} />
           <Route path='/AdminForm' element={<AdminCarForm />} />
           <Route path='/AdminCarDisplay' element={<AdminCarDisplay/>} />
