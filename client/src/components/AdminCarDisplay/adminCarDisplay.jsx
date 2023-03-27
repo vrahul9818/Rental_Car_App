@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useState,useContext,useEffect } from "react";
 import axios from "axios";
 import "./admincarDisplay.css"
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar"
+import { adminCarDataContext } from "../adminCarContext/adminCarContext";
 
 const AdminCarDisplay = () => {
+
+  const {adminCarData, setadminCarData} = useContext(adminCarDataContext);
+
   const navigate = useNavigate();
   console.log(localStorage.getItem("token_admin"));
   const [data, setData] = useState([]);
@@ -33,7 +38,28 @@ const AdminCarDisplay = () => {
       });
   }, []);
 
-  console.log(data, "data");
+/////edit admin car detail///
+const adminCarDisplayEditDelete = (key) =>{
+  console.log(key)
+  setadminCarData(key);
+  navigate("/adminCarEditDelete")
+}
+
+
+////// checking to convert to alphabetic month name
+const dateToNumeric = (val) =>{
+const dateStr = val;
+const date = new Date(dateStr);
+const options = { day: "numeric", month: "long" };
+const formattedDate = date.toLocaleDateString("en-US", options);
+
+return formattedDate
+}
+
+
+
+  // console.log(data[0].availableFrom, "date");
+
   return (
     <div>
     <div className="adminNavbar">
@@ -53,16 +79,19 @@ const AdminCarDisplay = () => {
           data.map((key,index)=>{
             return(<>
             <div className="car_card">
-            <img className="car_image" src={url+`/images/${key?.images[0]}`}
+            <img onDoubleClick={()=>{adminCarDisplayEditDelete(key)}} className="car_image" src={url+`/images/${key?.images[0]}`}
             alt="image" />
            <p className="car_passenger">6 passenger</p>
            <div className="car_detail">
            <p className="carName">{key.carName}</p>
            <p className="car_price">200 rs/km</p>
             </div>
-           <p className="available_from">{key.availableFrom}</p>
-  <p className="available_to">{key.availableTo}</p>
+            <div className="admin_car_dateFrom_dateTo">
+              <p className="available_heading">Available Date: </p>
+  <p className="available_from">{dateToNumeric(key.availableFrom)}</p>
+    <p className="available_to">{dateToNumeric(key.availableTo)}</p>
 </div>
+        </div>
             </>)
           })
         }

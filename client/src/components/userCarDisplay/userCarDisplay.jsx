@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../user_booking/user_data_context";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
-import carImage from "../../front_image/self-drive-norwa-car-people.png";
 import "./userCarDisplay.css";
 import axios from "axios";
 import { useEffect } from "react";
@@ -74,7 +73,7 @@ const UserCarDisplay = () => {
         <p className='Other'>Other</p>
       </div>
       <div class='cardContainer'>
-        {userCarData.map((key, index) => {
+        {userCarData?.map((key, index) => {
           return (
             <>
               <div class='card'>
@@ -86,8 +85,8 @@ const UserCarDisplay = () => {
                 <div class='carDetailsTop'>
                   <p class='carCapacity'>6 passenger</p>
                   <div className='car_name_fare'>
-                    <p class='carName'>{key.carName}</p>
-                    <p class='carPerKm'>{key.perKm}</p>
+                    <p class='carName'>{key?.carName}</p>
+                    <p class='carPerKm'>{key?.perKm}</p>
                   </div>
                 </div>
                 <div class='carDetailsBottom'>
