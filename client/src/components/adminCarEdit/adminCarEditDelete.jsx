@@ -3,27 +3,28 @@ import { useContext, useState } from "react";
 import { adminCarDataContext } from "../adminCarContext/adminCarContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./adminCarEditDelete.css"
+
 const AdminCarEditDelete = () => { 
-  const {adminCarData, setadminCarData} = useContext(adminCarDataContext);
-  console.log(adminCarData);
-  console.log(adminCarData);
-  console.log(localStorage.getItem("token_admin"));
+  const {adminCarData} = useContext(adminCarDataContext);
   const navigate = useNavigate();
+  const [uid,setUid] = useState(adminCarData._id)
   const [carName, setCarName] = useState(adminCarData.carName);
   const [carType, setCarType] = useState(adminCarData.carType);
   const [model, setModel] = useState(adminCarData.model);
   const [mileage, setMileage] = useState(adminCarData.mileage);
   const [perKm, setPerKm] = useState(adminCarData.perKm);
-  const [availableFrom, setAvailableFrom] = useState(adminCarData.availableFrom.split("T")[0]);
-  const [availableTo, setAvailableTo] = useState(adminCarData.availableFrom.split("T")[0]);
+  const [availableFrom, setAvailableFrom] = useState(adminCarData.availableFrom);
+  const [availableTo, setAvailableTo] = useState(adminCarData.availableTo);
   const [description, setDescription] = useState(adminCarData.description);
 
   const [carDetails, setCarDetails] = useState("");
-  const url = "http://localhost:8080/car_rent/adminCarData";
+  const url = "http://localhost:8080/car_rent/adminCarData/Edit";
   const handleSubmit = (e) => {
    
     e.preventDefault();
     const formData = new FormData();
+    formData.append("uid",uid)
     formData.append("carName", carName);
     formData.append("carType", carType);
     formData.append("model", model);
@@ -32,11 +33,10 @@ const AdminCarEditDelete = () => {
     formData.append("availableFrom", availableFrom);
     formData.append("availableTo", availableTo);
     formData.append("description", description);
-    formData.append("adminToken",localStorage.getItem("token_admin"))
-   
     formData.append("carDetails", carDetails);
+    console.log(formData);
     axios
-      .post(url, formData)
+      .put(url, formData)
       .then((response) => {
         console.log(response.data,"response axios");
       })
@@ -44,14 +44,24 @@ const AdminCarEditDelete = () => {
         console.log(error);
       });
     console.log(formData);
-
-    formData.forEach((key)=>{
-      console.log(key)
-    })
     navigate("/AdminCarDisplay");
+
+  };
+
+  const handelDelete = () => {
+    console.log(uid)
+    axios
+      .delete("http://localhost:8080/car_rent/adminCarData/Delete", { data: { uid: uid } })
+      .then((response) => {
+        console.log(response.data, "response axios");
+        navigate("/AdminCarDisplay");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
-    <div>
+    <div className="AdminCarDisplay">
       <h2>Add Car Edit Details</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor='car-name'>Car Name:</label>
@@ -129,8 +139,9 @@ const AdminCarEditDelete = () => {
           name='carDetails'
           value={carDetails}
           onChange={(e) => setCarDetails(e.target.value)}></textarea>
-        {/* <button type='submit'>Add</button> */}
+        <button id="adminCarEditADD" className="adminCarEditADDcl" type='submit'>Edit</button>
       </form>
+      <button onClick={handelDelete} id="adminCarEditDelete" type="delete">Delete</button>
     </div>
   );
 };
