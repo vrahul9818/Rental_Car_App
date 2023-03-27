@@ -1,0 +1,27 @@
+#formBox {
+  width: 30%;
+  padding: 30px 70px;
+  padding-left: 120px;
+  margin: 10px auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+}
+#form {
+  display: flex;
+  flex-direction: column;
+}
+.amBottom {
+  margin-bottom: 10px;
+  width: 90%;
+}
+.addButten {
+  width: 100px;
+}
+#heading {
+  margin-left: 373px;
+}
+body {
+  background-color: rgb(254, 254, 254);
+}
