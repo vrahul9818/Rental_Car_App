@@ -7,16 +7,14 @@ const adminCarSchema = new Schema({
   model: {type: String,required: true,},
   mileage: {type: String,required: true,},
   perKm: {type: Number,required: true,},
-  availableFrom: {type: Date},
-  availableTo: {type: Date},
+  availableFrom: {type: String},
+  availableTo: {type: String},
   description: {type: String,required: true,},
   images: {type: [String]},
   carDetails: {type: String},
   Admin_id:{type: String}
 });
 
-const AdminCarModel = mongoose.model('Cars',adminCarSchema);
+const AdminCarModel = mongoose.model("Cars", adminCarSchema);
 
 module.exports = AdminCarModel;
-
-
