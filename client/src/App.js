@@ -3,10 +3,13 @@ import Login from "./components/login/login";
 import CheckRoutes from "./components/checkRoute/check";
 import UserBooking from "../src/components/user_booking/userBooking";
 import { DataProvider } from "../src/components/user_booking/user_data_context";
+import { AdminCarDataProvider } from "./components/adminCarContext/adminCarContext";
 import UserCarDisplay from "./components/userCarDisplay/userCarDisplay";
 import AdminCarForm from "./components/AdminCarForm/adminCarForm";
 import MyBooking from "./components/MyBooking/MyBooking";
 import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
+import Register from "./components/login/register";
+import AdminCarEditDelete from "./components/adminCarEdit/adminCarEditDelete";
 
 function App() {
   return (
@@ -14,9 +17,21 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/checkRoute' element={<CheckRoutes />} />
           <Route path='/AdminForm' element={<AdminCarForm />} />
-          <Route path='/AdminCarDisplay' element={<AdminCarDisplay/>} />
+          <Route path='/AdminCarDisplay' element={
+            <AdminCarDataProvider> 
+              <AdminCarDisplay/>
+            </AdminCarDataProvider>
+          } 
+          />
+           <Route path='/AdminCarEditDelete' element={
+            <AdminCarDataProvider> 
+              <AdminCarEditDelete/>
+            </AdminCarDataProvider>
+          } 
+          />
           <Route
             path='/userBooking'
             element={

@@ -95,10 +95,31 @@
     color: green;
   }
   
-  .available_from,
-  .available_to {
-    margin-top: 5px;
-    font-size: 12px;
+  .admin_car_dateFrom_dateTo {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .available_heading{
+    margin-right: 5px;
+    margin-left: 8px;
+    font-size: 15px;
+    color: gray;
+
+  }
+  
+  .available_from {
+    margin-right: 5px;
+    margin-left: 8px;
+    font-size: 15px;
     color: gray;
   }
+  
+  .available_to {
+    margin-left: 5px;
+    margin-left: 12px;
+    font-size: 15px;
+    color: gray;
+  }
+  
   

@@ -28,7 +28,7 @@ const AdminLogin = (props) => {
   return (
     <>
       <div className='adminLoginBox'>
-        <h2>Sign in to your account</h2>
+        <h2>Sign in to admin account</h2>
         <div className="form-input">
           <input
             type='email'

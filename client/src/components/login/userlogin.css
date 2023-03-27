@@ -1,42 +1,58 @@
-.adminSignup {
+.userLoginBox {
     width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .adminSignupBox {
-    width: 400px;
-    margin-top: 50px;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  .adminSignupBox h2 {
+  .userLoginBox h2 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
   }
   
-  .admin-input {
-    margin-bottom: 15px;
+  .userlogin-input {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
   }
   
-  .admin-input input {
-    width: 90%;
+  .userlogin-input input {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
   }
+
+  .create-acc{
+    display: flex;
+    gap: 20px;
+  }
   
-  .admin-input input:focus {
+  .userlogin-input input:focus {
     outline: none;
     border-color: #6b9ce8;
   }
   
-  .signup-btn {
+  p {
+    text-align: center;
+    cursor: pointer;
+    color: #6b9ce8;
+    font-size: 14px;
+  }
+  
+  .create_account:hover {
+    text-decoration: underline;
+  }
+  
+  .signIN_creataccount {
+    text-align: center;
+  }
+  
+  .sign-btn {
     background-color: #6b9ce8;
     color: #fff;
     padding: 10px 20px;
@@ -44,10 +60,9 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
   }
   
-  .signup-btn:hover {
+  .sign-btn:hover {
     background-color: #4c7bd9;
   }
   

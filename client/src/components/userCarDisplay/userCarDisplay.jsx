@@ -18,15 +18,18 @@ const UserCarDisplay = () => {
   const handleModify = () => {
     navigate("/userBooking")
   };
+  const handelUserBooking = () => {
+    navigate("/mybooking")
+  };
   return (
     <>
 
       <Navbar />
       <div className="second_bar">
-          <p className="origin">{origin}</p>
-          <p className="destination">{destination}</p>
-          <p className="startDate">{startDate}</p>
-          <p className="endDate">{endDate}</p>
+          <p className="origin">{origin? origin : "origin"}</p>
+          <p className="destination">{destination?destination:"destination"}</p>
+          <p className="startDate">{startDate ? startDate : "startDate"}</p>
+          <p className="endDate">{endDate ? endDate : "endate"}</p>
           <button className="modify" onClick={handleModify}>Modify</button> 
          </div>
     <div className="third_bar">
@@ -45,20 +48,20 @@ const UserCarDisplay = () => {
         <p className="Milage">Milage</p>
         <p className="Other">Other</p>
 </div>
-<div class="cardContainer">
-  <div class="card">
+<div className="cardContainer">
+  <div className="card">
     <img src={carImage} alt="Car" class="carImage" />
-    <div class="carDetailsTop">
-      <p class="carCapacity">6 passenger</p>
+    <div className="carDetailsTop">
+      <p className="carCapacity">6 passenger</p>
       <div className="car_name_fare">
-      <p class="carName">innova</p>
-      <p class="carPerKm">Rs.200/km</p>
+      <p className="carName">innova</p>
+      <p className="carPerKm">Rs.200/km</p>
       </div>
      
     </div>
-    <div class="carDetailsBottom">
-      <p class="fare">carfare</p>
-      <p class="bookNow">Book Now</p>
+    <div className="carDetailsBottom">
+      <p className="fare">carfare</p>
+      <p onClick={handelUserBooking} className="bookNow">Book Now</p>
     </div>
   </div>
 </div>

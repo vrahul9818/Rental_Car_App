@@ -10,6 +10,7 @@ const SECRET_ID = "j";
 const jwt = require('jsonwebtoken');
 
 const app = express();
+
 const router = express.Router();
 
 
@@ -65,7 +66,7 @@ const decoded = jwt.verify(req.body.adminToken, SECRET_ID);
         model: model,
         mileage: mileage,
         perKm:perKm,
-        availableFrom: availableFrom,
+        availableFrom: availableTo,
         availableTo:availableTo,
         description: description,
         images: imageArray ,
