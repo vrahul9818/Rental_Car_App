@@ -10,6 +10,7 @@ const SECRET_ID = "j";
 const jwt = require('jsonwebtoken');
 
 const app = express();
+
 const router = express.Router();
 
 
@@ -57,6 +58,10 @@ router.post("/adminCarData", async(req, res) => {
 const decoded = jwt.verify(req.body.adminToken, SECRET_ID);
 // console.log(decoded.data,"decoded");
 
+const dateStart = availableFrom.split("T")[0];
+const dateTo   = availableTo.split("T")[0];
+ console.log(availableFrom,availableTo)
+
 
 //////unique id for admin///////
     const adminCar = await AdminCarModel.create({
@@ -65,8 +70,8 @@ const decoded = jwt.verify(req.body.adminToken, SECRET_ID);
         model: model,
         mileage: mileage,
         perKm:perKm,
-        availableFrom: availableFrom,
-        availableTo:availableTo,
+        availableFrom: dateStart,
+        availableTo:dateTo,
         description: description,
         images: imageArray ,
         carDetails: carDetails,
