@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './userlogin.css'
 
 const UserLogin = (props) => {
   const navigate = useNavigate()
@@ -28,27 +29,37 @@ const UserLogin = (props) => {
   return (
     <>
       <div className="userLoginBox">
-        <h2>Sign in to your account</h2>
-        <input
-          type="email"
-          placeholder="Email"
-          name="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p>Forgot your password?</p>
+        <h2>Sign in to user's account</h2>
+        <div className="userlogin-input">
+          <input
+            type="email"
+            placeholder="Email"
+            name="Email"
+            className="userlogin-email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="userlogin-input">
+          <input
+            type="password"
+            placeholder="Password"
+            name="Password"
+            className="userlogin-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="create-acc">
+          <p>Forgot your password?</p>
+          <p onClick={props.onCreateAccount} >
+              Create an account
+          </p>
+        </div>
+        
         <div className="signIN_creataccount">
-        <p onClick={props.onCreateAccount} className="create_account">
-            Create an account
-        </p>
-          <button onClick={handleSignin}>Sign in</button>
+        
+          <button className="sign-btn" onClick={handleSignin}>Sign in</button>
         </div>
       </div>
     </>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './usersignup.css'
 
 const UserSignup = (props) => {
   const [name, setName] = useState("");
@@ -35,42 +36,58 @@ const UserSignup = (props) => {
     <div className="userSignup">
       <div className="userSignupBox">
         <h2>Sign up for an account</h2>
-        <input
-          type="text"
-          placeholder="Name"
-          name="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="tel"
-          placeholder="Contact"
-          name="Contact"
-          value={contact}
-          onChange={(e) => setContact(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          name="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button onClick={handleSignup}>Sign up</button>
+        <div className="userSignup-input">
+          <input
+            type="text"
+            placeholder="Name"
+            name="Name"
+            className="userSignup-name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="userSignup-input">
+          <input
+            type="email"
+            placeholder="Email"
+            name="Email"
+            className="userSignup-email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="userSignup-input">
+          <input
+            type="tel"
+            placeholder="Contact"
+            name="Contact"
+            className="userSignup-contact"
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
+          />
+        </div>
+        <div className="userSignup-input">
+          <input
+            type="password"
+            placeholder="Password"
+            name="Password"
+            className="userSignup-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="userSignup-input">
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="Confirm Password"
+            className="userSignup-password2"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+      
+        <button className="sign-btn" onClick={handleSignup}>Sign up</button>
       </div>
     </div>
   );

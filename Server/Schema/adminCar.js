@@ -15,8 +15,6 @@ const adminCarSchema = new Schema({
   Admin_id:{type: String}
 });
 
-const AdminCarModel = mongoose.model('Cars',adminCarSchema);
+const AdminCarModel = mongoose.model("Cars", adminCarSchema);
 
 module.exports = AdminCarModel;
-
-

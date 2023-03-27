@@ -1,10 +1,10 @@
-.adminSignup {
+.userSignup {
     width: 100%;
     display: flex;
     justify-content: center;
   }
   
-  .adminSignupBox {
+  .userSignupBox {
     width: 400px;
     margin-top: 50px;
     padding: 20px;
@@ -13,17 +13,17 @@
     border-radius: 5px;
   }
   
-  .adminSignupBox h2 {
+  .userSignupBox h2 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
   }
   
-  .admin-input {
+  .userSignup-input {
     margin-bottom: 15px;
   }
   
-  .admin-input input {
+  .userSignup-input input {
     width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -31,12 +31,12 @@
     font-size: 16px;
   }
   
-  .admin-input input:focus {
+  .userSignup-input input:focus {
     outline: none;
     border-color: #6b9ce8;
   }
   
-  .signup-btn {
+  .sign-btn {
     background-color: #6b9ce8;
     color: #fff;
     padding: 10px 20px;
@@ -47,7 +47,7 @@
     width: 100%;
   }
   
-  .signup-btn:hover {
+  .sign-btn:hover {
     background-color: #4c7bd9;
   }
   
