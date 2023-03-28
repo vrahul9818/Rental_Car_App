@@ -8,9 +8,10 @@ export const DataProvider = (props) => {
   const [endDate, setEndDate] = useState("");
   const[origin,setOrigin] = useState("");
   const[destination,setDestination] = useState("");
+  const[userCarID, setUserCarID] = useState("");
 
   return (
-    <DataContext.Provider value={{ startDate, setStartDate ,endDate,setEndDate,origin,setOrigin,destination,setDestination}}>
+    <DataContext.Provider value={{ startDate, setStartDate ,endDate,setEndDate,origin,setOrigin,destination,setDestination, userCarID, setUserCarID}}>
       {props.children}
     </DataContext.Provider>
   );

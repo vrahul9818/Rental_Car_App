@@ -4,9 +4,9 @@ import "./login.css";
 import UserSignup from "./usersignup";
 import UserLogin from "./userLogin";
 import Navbar from "../navbar/navbar";
-import AdminLogin from "./adminlogin";
-import AdminSignup from "./adminSignup";
-import { Link, Navigate } from "react-router-dom";
+// import AdminLogin from "./adminlogin";
+// import AdminSignup from "./adminSignup";
+// import { Link, Navigate } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
