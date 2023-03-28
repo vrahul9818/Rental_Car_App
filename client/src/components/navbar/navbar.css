@@ -2,13 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  background-color: #f1f1f1;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  align-content: center;
+  align-self: center;
+  padding: 10px 30px;
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+  box-shadow: 10px 10px 10px rgba(130, 225, 149, 0.2);
 }
 
 .navbar-logo img {
   height: 50px;
+  width: 70px;
+  border-radius: 20px;
 }
 
 .booking-button,
@@ -19,6 +30,7 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  margin: 0px;
 }
 
 .booking-button {
@@ -42,19 +54,31 @@
   background-color: #f44336;
 }
 
-.Navbar_UserLogin{
+.Navbar_UserLogin {
   font-size: 15px;
   display: inline-block;
   text-align: right;
   border: 1px solid black;
   padding: 10px 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-image: linear-gradient(to right, #3f51b5, #2196f3);
   color: white;
   transition: all 0.3s ease-in-out;
-  }
-  
-  .Navbar_UserLogin:hover{
+}
+
+.Navbar_UserLogin:hover {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   background-image: linear-gradient(to right, #2196f3, #3f51b5);
-  }
+}
+.redirectButton {
+  display: inline-block;
+  margin-left: 850px;
+  width: 80px;
+
+  padding: 7px;
+  border: 2px solid #f44336;
+
+  border-radius: 25px;
+  color: #f1f1f1;
+  background-color: #f44336;
+}
