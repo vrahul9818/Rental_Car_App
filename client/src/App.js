@@ -10,6 +10,7 @@ import MyBooking from "./components/MyBooking/MyBooking";
 import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
 import Register from "./components/login/register";
 import AdminCarEditDelete from "./components/adminCarEdit/adminCarEditDelete";
+import CarPayment from "./components/CarPayment/CarPayment";
 
 
 function App() {
@@ -54,6 +55,14 @@ function App() {
             element={
               <DataProvider>
                 <MyBooking />
+              </DataProvider>
+            }
+          />
+          <Route
+            path='/carpayment'
+            element={
+              <DataProvider>
+                <CarPayment />
               </DataProvider>
             }
           />

@@ -8,10 +8,10 @@ import { useEffect } from "react";
 
 const UserCarDisplay = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const { startDate, endDate, origin, destination } = useContext(DataContext);
+  const { startDate, endDate, origin, destination , userCarID, setUserCarID} = useContext(DataContext);
   const navigate = useNavigate();
   const [userCarData, setUserCarData] = useState([]);
-
+  console.log(userCarID)
   const handleModify = () => {
     navigate("/userBooking");
   };
@@ -36,8 +36,11 @@ const UserCarDisplay = () => {
       });
   }, []);
   console.log(userCarData);
-  const handelUserBooking = () => {
-    navigate("/mybooking");
+  const handelUserBooking = (key) => {
+    setUserCarID(key)
+
+    navigate("/carpayment");
+    
   };
   return (
     <>
@@ -91,7 +94,7 @@ const UserCarDisplay = () => {
                 </div>
                 <div class='carDetailsBottom'>
                   <p class='fare'>carfare</p>
-                  <p class='bookNow' onClick={handelUserBooking}>
+                  <p class='bookNow' onClick={()=>{handelUserBooking(key)}}>
                     Book Now
                   </p>
                 </div>
