@@ -6,14 +6,14 @@ function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token-admin");
+    const token = localStorage.getItem("token_admin");
     if (token) {
       setIsLoggedIn(true);
     }
   }, [isLoggedIn]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token-admin");
+    localStorage.removeItem("token_admin");
     setIsLoggedIn(false);
     navigate("/");
   };
