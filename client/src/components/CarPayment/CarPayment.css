@@ -1,0 +1,36 @@
+#CarPaymetDetails {
+  display: flex;
+  padding: 30px 30px;
+  color: black;
+}
+.CarDetails {
+  padding-top: 30px;
+  margin-left: 20px;
+  padding-bottom: 20px;
+  border: 1px solid gray;
+  width: 60%;
+  padding-left: 40px;
+}
+.PaymentsDetails {
+  padding-top: 30px;
+  border: 1px solid gray;
+  margin-left: 20px;
+  width: 40%;
+  padding-left: 40px;
+}
+.detailsStageElements {
+  text-align: left;
+  color: black;
+}
+
+.PaymentsDetailsElements {
+  text-align: left;
+  color: black;
+}
+
+.detailsStage {
+  margin-bottom: 40px;
+}
+.carimage {
+  width: 100px;
+}
