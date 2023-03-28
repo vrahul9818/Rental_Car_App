@@ -1,23 +1,22 @@
 import React from "react";
-import { useState,useContext,useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import "./admincarDisplay.css"
+import "./admincarDisplay.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../navbar/navbar"
+import Navbar from "../navbar/adminNavbar";
 import { adminCarDataContext } from "../adminCarContext/adminCarContext";
 
 const AdminCarDisplay = () => {
-
-  const {adminCarData, setadminCarData} = useContext(adminCarDataContext);
+  const { adminCarData, setadminCarData } = useContext(adminCarDataContext);
 
   const navigate = useNavigate();
   console.log(localStorage.getItem("token_admin"));
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
 
-  const handelonclick = () =>{
-    navigate("/AdminForm")
-  }
+  const handelonclick = () => {
+    navigate("/AdminForm");
+  };
 
   const url = "http://localhost:8080/car_rent/adminCarData";
   useEffect(() => {
@@ -38,70 +37,74 @@ const AdminCarDisplay = () => {
       });
   }, []);
 
-/////edit admin car detail///
-const adminCarDisplayEditDelete = (key) =>{
-  console.log(key)
-  setadminCarData(key);
-  navigate("/adminCarEditDelete")
-}
+  /////edit admin car detail///
+  const adminCarDisplayEditDelete = (key) => {
+    console.log(key);
+    setadminCarData(key);
+    navigate("/adminCarEditDelete");
+  };
 
+  ////// checking to convert to alphabetic month name
+  const dateToNumeric = (val) => {
+    const dateStr = val;
+    const date = new Date(dateStr);
+    const options = { day: "numeric", month: "long" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
 
-////// checking to convert to alphabetic month name
-const dateToNumeric = (val) =>{
-const dateStr = val;
-const date = new Date(dateStr);
-const options = { day: "numeric", month: "long" };
-const formattedDate = date.toLocaleDateString("en-US", options);
-
-return formattedDate
-}
-
-
+    return formattedDate;
+  };
 
   // console.log(data[0].availableFrom, "date");
 
   return (
     <div>
-    <div className="adminNavbar">
-      {<Navbar/>}
-    </div>
-    <div className="adminCarcontainer">
-      <div className="hello_admin_name">
-      <h1 className="Admin_name">{`Hello ${name}`}</h1>
-      </div>
-       
-      <div className="car_add_CarButton">
-          <h3 className="car_name">Car</h3>
-          <button onClick={handelonclick} className="addCar">ADD CAR</button>
-      </div>
-      <div className="admin_car_card">
-        {
-          data.map((key,index)=>{
-            return(<>
-            <div className="car_card">
-            <img onDoubleClick={()=>{adminCarDisplayEditDelete(key)}} className="car_image" src={url+`/images/${key?.images[0]}`}
-            alt="image" />
-           <p className="car_passenger">6 passenger</p>
-           <div className="car_detail">
-           <p className="carName">{key.carName}</p>
-           <p className="car_price">200 rs/km</p>
-            </div>
-            <div className="admin_car_dateFrom_dateTo">
-              <p className="available_heading">Available Date: </p>
-  <p className="available_from">{dateToNumeric(key.availableFrom)}</p>
-    <p className="available_to">{dateToNumeric(key.availableTo)}</p>
-</div>
+      <div className='adminNavbar'>{<Navbar />}</div>
+      <div className='adminCarcontainer'>
+        <div className='hello_admin_name'>
+          <h1 className='Admin_name'>{`Hello ${name}`}</h1>
         </div>
-            </>)
-          })
-        }
+
+        <div className='car_add_CarButton'>
+          <h3 className='car_name'>Car</h3>
+          <button onClick={handelonclick} className='addCar'>
+            ADD CAR
+          </button>
+        </div>
+        <div className='admin_car_card'>
+          {data.map((key, index) => {
+            return (
+              <>
+                <div className='car_card'>
+                  <img
+                    onDoubleClick={() => {
+                      adminCarDisplayEditDelete(key);
+                    }}
+                    className='car_image'
+                    src={url + `/images/${key?.images[0]}`}
+                    alt='image'
+                  />
+                  <p className='car_passenger'>6 passenger</p>
+                  <div className='car_detail'>
+                    <p className='carName'>{key.carName}</p>
+                    <p className='car_price'>200 rs/km</p>
+                  </div>
+                  <div className='admin_car_dateFrom_dateTo'>
+                    <p className='available_heading'>Available Date: </p>
+                    <p className='available_from'>
+                      {dateToNumeric(key.availableFrom)}
+                    </p>
+                    <p className='available_to'>
+                      {dateToNumeric(key.availableTo)}
+                    </p>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
 export default AdminCarDisplay;
-
-
-

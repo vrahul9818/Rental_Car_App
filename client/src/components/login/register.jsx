@@ -8,29 +8,29 @@ import AdminLogin from "./adminlogin";
 import AdminSignup from "./adminSignup";
 import { Link, Navigate } from "react-router-dom";
 
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const Register = () => {
-  localStorage.setItem("token","");
-//   const [showSignup, setShowSignup] = useState(false);
-//   const [showAdminSignup, setAdminShowSignup] = useState(false);
-//   const handleAdminAccount = () => {
-//     setAdminShowSignup(true);
-//   };
+  localStorage.setItem("token", "");
+  //   const [showSignup, setShowSignup] = useState(false);
+  //   const [showAdminSignup, setAdminShowSignup] = useState(false);
+  //   const handleAdminAccount = () => {
+  //     setAdminShowSignup(true);
+  //   };
 
-//   const handleAdminBackAccount = () => {
-//   setAdminShowSignup(false);
-//   };
-//   const handleCreateAccount = () => {
-//     setShowSignup(true);
-//   };
-//   const handleBackToLogin = () => {
-//     setShowSignup(false);
-//   };
+  //   const handleAdminBackAccount = () => {
+  //   setAdminShowSignup(false);
+  //   };
+  //   const handleCreateAccount = () => {
+  //     setShowSignup(true);
+  //   };
+  //   const handleBackToLogin = () => {
+  //     setShowSignup(false);
+  //   };
 
   // const handleAdminLogin =()=> {
   //   setShowSignup(true)
@@ -47,15 +47,14 @@ const Register = () => {
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
-  
+
     return (
       <div
-        role="tabpanel"
+        role='tabpanel'
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
         aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
+        {...other}>
         {value === index && (
           <Box sx={{ p: 3 }}>
             <Typography>{children}</Typography>
@@ -69,11 +68,11 @@ const Register = () => {
     index: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
   };
-  
+
   function a11yProps(index) {
     return {
       id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
     };
   }
 
@@ -94,35 +93,31 @@ const Register = () => {
             <AdminLogin onCreateAccount={handleAdminAccount} />
           )} */}
 
-      <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="User Login" {...a11yProps(0)} />
-          <Tab label="User Register" {...a11yProps(1)} />
-          
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        <UserLogin/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-       <UserSignup/>
-      </TabPanel>
-      
-    </Box>
+          <Box sx={{ width: "100%" }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label='basic tabs example'>
+                <Tab label='User Login' {...a11yProps(0)} />
+                <Tab label='User Register' {...a11yProps(1)} />
+              </Tabs>
+            </Box>
+            <TabPanel value={value} index={0}>
+              <UserLogin />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <UserSignup />
+            </TabPanel>
+          </Box>
 
           {/* {showSignup ? (
             <UserSignup onBackToLogin={handleBackToLogin} />
           ) : (
             <UserLogin onCreateAccount={handleCreateAccount} />
           )} */}
-
-          
-
         </div>
-        <div className='userlogin'>
-          
-        </div>
+        <div className='userlogin'></div>
       </div>
     </>
   );

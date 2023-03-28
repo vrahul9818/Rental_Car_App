@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./AdminCarForm.css";
-import Navbar from "../navbar/navbar";
+import Navbar from "../navbar/adminNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const AdminCarForm = () => {
