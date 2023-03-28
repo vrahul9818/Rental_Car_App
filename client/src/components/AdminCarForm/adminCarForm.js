@@ -48,6 +48,18 @@ const AdminCarForm = () => {
     });
     navigate("/AdminCarDisplay");
   };
+  const handleCancel = () => {
+    setCarName("");
+    setCarType("");
+    setModel("");
+    setMileage("");
+    setPerKm("");
+    setAvailableFrom("");
+    setAvailableTo("");
+    setDescription("");
+    setImages([]);
+    setCarDetails("");
+  };
   return (
     <div>
       <Navbar />
@@ -152,8 +164,14 @@ const AdminCarForm = () => {
             name='carDetails'
             value={carDetails}
             onChange={(e) => setCarDetails(e.target.value)}></textarea>
-          <button type='submit' className='addButten '>
+          <button type='submit' className='addButten button add-button'>
             Add
+          </button>
+          <button
+            type='button'
+            className='button cancel-button'
+            onClick={handleCancel}>
+            Cancel
           </button>
         </form>
       </div>
