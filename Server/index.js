@@ -11,6 +11,7 @@ const adminLoginSignup = require("./routes/signup_login_admin");
 const testAdminData = require("./routes/testAdminData");
 const UserCarDisply = require("./routes/userCarDisply");
 const userCarBooking = require("./routes/user_car_booking")
+const myBooking = require("./routes/myBooking")
 
 
 
@@ -46,6 +47,7 @@ app.use("/car_rent", adminLoginSignup);
 app.use("/car_rent", testAdminData);
 app.use("/car_rent", UserCarDisply);
 app.use("/car_rent",userCarBooking);
+app.use("/car_rent",myBooking)
 //server
 app.listen(SERVER_PORT, (req, res) => {
   console.log(`server started ${SERVER_PORT}`);

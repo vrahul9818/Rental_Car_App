@@ -13,33 +13,48 @@ const router = express.Router();
 
 //schema import
 const UserModel = require("../Schema/user")
+const BookingModel = require("../Schema/booking");
+const CarModel = require("../Schema/adminCar");
 
 //middleware
 app.use(express.json());
 app.use(cors());
 app.use(fileupload());
+app.use(bodyParser.json())
 
 
 
-router.get("/userCarDisplay/userCarBooking", async (req, res) => {
+router.post("/userCarDisplay/userCarBooking", async (req, res) => {
 
     try {
-        const userCarIDS = req.body;
-        console.log(userCarIDS);
+   
+    const{userCarIDS ,startDate, endDate,origin ,destination, bookingDate ,bookingTime} =req.body;
       const token = req.headers.authorization.split("Bearer")[1];
       const decoded = jwt.verify(token, SECRET_ID);
+      // console.log(req.body)
+      const CarData = await CarModel.findOne({_id:userCarIDS});
       const User_data = await UserModel.findOne({_id: decoded.data.unique_id });
-         userCarIDS.userCarID.forEach((key)=>{
-         User_data.Booking.push(key);
-        })
-        console.log(User_data)
+      const bookObj = await BookingModel.create({images: CarData.images[0],
+      carName: CarData.carName,
+      carType: CarData.carType,
+      model: CarData.model,
+      startDate: startDate,
+      endDate: endDate,
+      description: CarData.description,
+      bookingDate:bookingDate,
+      bookingTime:bookingTime,
+      carDetails: CarData.carDetails,
+      User_id:User_data._id})
+      console.log(bookObj,"objfinal");
+      User_data.Booking.push(userCarIDS)
         await User_data.save()
-        res.send("user_data");
+        res.send(bookObj);
+      
+
     } catch (error) {
       console.log(error);
       res.status(500).send("Error fetching data");
     }
   });
-
 
   module.exports = router

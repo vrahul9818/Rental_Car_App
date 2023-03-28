@@ -7,34 +7,39 @@ import axios from 'axios';
 
 const CarPayment = () => {
 
-    const { startDate, endDate, origin, destination , userCarID, setUserCarID} = useContext(DataContext);
-    console.log(userCarID)
+    const { startDate ,endDate,origin,destination, userCarID } = useContext(DataContext);
+    const idddd = userCarID._id;
     const url = 'http://localhost:8080/car_rent/userCarDisplay/userCarBooking'
-    useEffect(() => {
-        axios
-      .get(url, {
-        headers: {
-          Authorization: `Bearer${localStorage.getItem("token")}`,
-        },
-        body: {
-            "userCarID": userCarID._id
-        }
-      })
-      .then((response) => {
-        console.log(response);
-        // setData(response.data.carBookingData);
-        // console.log(response.data.name);
-        // setName(response.data.name);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      }, []);
-  return (
-    <div>
 
-    </div>
-  )
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        axios
+            .post(url, { 
+            userCarIDS: idddd,
+            startDate:startDate,
+            endDate:endDate,
+            origin:origin,
+            destination:destination,
+            bookingDate:new Date().toLocaleDateString(),
+            bookingTime:new Date().toLocaleTimeString()
+            
+            }, { headers: { Authorization: `Bearer${token}` } })
+            .then((response) => {
+                console.log(response);
+                // setData(response.data.carBookingData);
+                // console.log(response.data.name);
+                // setName(response.data.name);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
+    return (
+        <div>
+            <p>payment</p>
+        </div>
+    )
 }
 
-export default CarPayment
+export default CarPayment;
