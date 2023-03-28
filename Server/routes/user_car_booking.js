@@ -44,7 +44,10 @@ router.post("/userCarDisplay/userCarBooking", async (req, res) => {
       bookingDate:bookingDate,
       bookingTime:bookingTime,
       carDetails: CarData.carDetails,
-      User_id:User_data._id})
+      User_id:User_data._id,
+      origin:origin,
+      destination:destination
+    })
       console.log(bookObj,"objfinal");
       User_data.Booking.push(userCarIDS)
         await User_data.save()

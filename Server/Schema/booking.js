@@ -12,8 +12,10 @@ const bookingDataSchema = new Schema({
   bookingDate:{type:String},
   bookingTime:{type:String},
   carDetails: {type: String},
-  User_id:{type: String}
-
+  User_id:{type: String},
+  origin:{type: String},
+  destination:{type: String},
+  description:{type:String}
 });
 
 const BookingModel = mongoose.model('Bookings', bookingDataSchema);
