@@ -22,7 +22,7 @@ const AdminLogin = (props) => {
       .catch((error) => {
         console.log(error);
       });
-    navigate("/AdminCarDisplay");
+    navigate("/AdminForm");
   };
 
   return (

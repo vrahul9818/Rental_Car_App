@@ -35,7 +35,7 @@ router.post("/adminCarData", async (req, res) => {
     carDetails,
     adminToken,
   } = req.body;
-//   console.log(images);
+  //   console.log(images);
   var imageArray = [];
 
   if (typeof images === "object" && !Array.isArray(images)) {
@@ -64,7 +64,6 @@ router.post("/adminCarData", async (req, res) => {
   /////decoding token///////////
   const decoded = jwt.verify(req.body.adminToken, SECRET_ID);
   // console.log(decoded.data,"decoded");
-
 
   //////unique id for admin///////
   const adminCar = await AdminCarModel.create({
@@ -110,50 +109,56 @@ router.get("/adminCarData/images/:filename", async (req, res) => {
   );
 });
 
-
-
 /////////put request//////
 router.put("/adminCarData/Edit", async (req, res) => {
-    const {
-      uid,
-      carName,
-      carType,
-      model,
-      mileage,
-      perKm,
-      availableFrom,
-      availableTo,
-      description,
-      carDetails,
-    } = req.body;
-  
-    try {
-      const putData = await AdminCarModel.findOneAndUpdate(
-        { _id: uid },
-        {carName,carType,model,mileage,perKm,availableFrom,availableTo,description,carDetails,},
-        { new: true }
-      );
-  
-      res.json(putData);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Server Error" });
-    }
-  });
-  
-  router.delete("/adminCarData/Delete", async (req, res) => {
-    const uid = req.body.uid;
-    try {
-      const deletedCar = await AdminCarModel.findByIdAndDelete(uid);
-      if (!deletedCar) {
-        return res.status(404).send("Car not found");
-      }
-      res.send("Car deleted successfully");
-    } catch (err) {
-      res.status(500).send(err.message);
-    }
-  });
-  
+  const {
+    uid,
+    carName,
+    carType,
+    model,
+    mileage,
+    perKm,
+    availableFrom,
+    availableTo,
+    description,
+    carDetails,
+  } = req.body;
 
+  try {
+    const putData = await AdminCarModel.findOneAndUpdate(
+      { _id: uid },
+      {
+        carName,
+        carType,
+        model,
+        mileage,
+        perKm,
+        availableFrom,
+        availableTo,
+        description,
+        carDetails,
+      },
+      { new: true }
+    );
+
+    res.json(putData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
+router.delete("/adminCarData/Delete", async (req, res) => {
+  const uid = req.body.uid;
+  try {
+    const deletedCar = await AdminCarModel.findByIdAndDelete(uid);
+    if (!deletedCar) {
+      return res.status(404).send("Car not found");
+    }
+    res.send("Car deleted successfully");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 module.exports = router;

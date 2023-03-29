@@ -26,6 +26,11 @@ function Navbar() {
           alt='Logo'
         />
       </div>
+
+      <div className='redirectButton'>
+        <Link to='/AdminCarDisplay'>My Cars</Link>
+      </div>
+
       {isLoggedIn && (
         <div className='navbar-buttons'>
           <button className='logout-button' onClick={handleLogout}>
