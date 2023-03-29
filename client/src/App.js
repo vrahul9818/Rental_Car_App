@@ -11,7 +11,7 @@ import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
 import Register from "./components/login/register";
 import AdminCarEditDelete from "./components/adminCarEdit/adminCarEditDelete";
 import CarPayment from "./components/CarPayment/CarPayment";
-
+import EditMYbooking from "./components/user_booking/editMybooking";
 
 function App() {
   return (
@@ -22,17 +22,21 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/checkRoute' element={<CheckRoutes />} />
           <Route path='/AdminForm' element={<AdminCarForm />} />
-          <Route path='/AdminCarDisplay' element={
-            <AdminCarDataProvider> 
-              <AdminCarDisplay/>
-            </AdminCarDataProvider>
-          } 
+          <Route
+            path='/AdminCarDisplay'
+            element={
+              <AdminCarDataProvider>
+                <AdminCarDisplay />
+              </AdminCarDataProvider>
+            }
           />
-           <Route path='/AdminCarEditDelete' element={
-            <AdminCarDataProvider> 
-              <AdminCarEditDelete/>
-            </AdminCarDataProvider>
-          } 
+          <Route
+            path='/AdminCarEditDelete'
+            element={
+              <AdminCarDataProvider>
+                <AdminCarEditDelete />
+              </AdminCarDataProvider>
+            }
           />
           <Route
             path='/userBooking'
@@ -63,6 +67,14 @@ function App() {
             element={
               <DataProvider>
                 <CarPayment />
+              </DataProvider>
+            }
+          />
+          <Route
+            path='/editMybooking'
+            element={
+              <DataProvider>
+                <EditMYbooking />
               </DataProvider>
             }
           />

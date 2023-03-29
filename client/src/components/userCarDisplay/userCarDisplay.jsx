@@ -8,10 +8,11 @@ import { useEffect } from "react";
 
 const UserCarDisplay = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const { startDate, endDate, origin, destination , userCarID, setUserCarID} = useContext(DataContext);
+  const { startDate, endDate, origin, destination, userCarID, setUserCarID } =
+    useContext(DataContext);
   const navigate = useNavigate();
   const [userCarData, setUserCarData] = useState([]);
-  console.log(userCarID)
+  console.log(userCarID);
   const handleModify = () => {
     navigate("/userBooking");
   };
@@ -37,10 +38,9 @@ const UserCarDisplay = () => {
   }, []);
   console.log(userCarData);
   const handelUserBooking = (key) => {
-    setUserCarID(key)
+    setUserCarID(key);
 
     navigate("/carpayment");
-    
   };
   return (
     <>
@@ -79,22 +79,29 @@ const UserCarDisplay = () => {
         {userCarData?.map((key, index) => {
           return (
             <>
-              <div class='card'>
-                <img
-                  className='car_image'
-                  src={url + `/images/${key?.images[0]}`}
-                  alt='image'
-                />
+              <div className='card'>
+                <div className='carBox'>
+                  <img
+                    className='car_image'
+                    src={url + `/images/${key?.images[0]}`}
+                    alt='image'
+                  />
+                </div>
                 <div class='carDetailsTop'>
-                  <p class='carCapacity'>6 passenger</p>
+                  <p className='carCapacity'>6 passenger</p>
                   <div className='car_name_fare'>
                     <p class='carName'>{key?.carName}</p>
                     <p class='carPerKm'>{key?.perKm}</p>
                   </div>
+                  <div className='passanger'>6 passenger</div>
                 </div>
                 <div class='carDetailsBottom'>
                   <p class='fare'>carfare</p>
-                  <p class='bookNow' onClick={()=>{handelUserBooking(key)}}>
+                  <p
+                    class='bookNow'
+                    onClick={() => {
+                      handelUserBooking(key);
+                    }}>
                     Book Now
                   </p>
                 </div>

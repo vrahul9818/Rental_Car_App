@@ -70,6 +70,19 @@ const CarPayment = () => {
       });
   }, []);
   console.log(data.images);
+  const handleCancel = (cancelId) => {
+    console.log(cancelId);
+    axios
+      .delete("http://localhost:8080/car_rent/userBooking/Delete", {
+        data: { cancelId: cancelId },
+      })
+      .then((response) => {
+        console.log(response, "response axios");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -133,7 +146,12 @@ const CarPayment = () => {
               Booking Time: &nbsp; {data.bookingTime}
             </p>
           </div>
-          <button className='cancelButton'>CANCEL</button>
+          <button
+            className='cancelButton'
+            // onClick={() => handleCancel(booking?._id)}
+          >
+            CANCEL
+          </button>
         </div>
         <div className='PaymentsDetails'>
           <h1 className='PaymentsDetailsElements boxheading'>
