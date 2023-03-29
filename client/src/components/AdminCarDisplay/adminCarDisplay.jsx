@@ -86,22 +86,28 @@ const AdminCarDisplay = () => {
                   <article className='car_passenger'>6 passenger</article>
                   <div className='car_detail'>
                     <article className='carName'>{key.carName}</article>
-                    <article className="car-type">{key.carType}-{key.model}</article>
+                    <article className='car-type'>
+                      {key.carType}-{key.model}
+                    </article>
                     {/* <article className="car-desc">{key.description}</article> */}
                     <article className='car_price'>{key.perKm} rs/km</article>
                   </div>
                   <div className='admin_car_dateFrom_dateTo'>
                     <article className='available_heading'>Available: </article>
                     <article className='availableTo-from'>
-                      {dateToNumeric(key.availableFrom)} - {dateToNumeric(key.availableTo)}
+                      {dateToNumeric(key.availableFrom)} -{" "}
+                      {dateToNumeric(key.availableTo)}
                     </article>
                   </div>
-                  <div className="edit-btn">
-                    <button className="edit" onClick={() => {
-                      adminCarDisplayEditDelete(key);
-                    }}>Edit</button>
+                  <div className='edit-btn'>
+                    <button
+                      className='edit'
+                      onClick={() => {
+                        adminCarDisplayEditDelete(key);
+                      }}>
+                      Edit
+                    </button>
                   </div>
-
                 </section>
               </>
             );

@@ -21,13 +21,15 @@
 .detailsStageElements {
   text-align: left;
   color: black;
+  font-size: 20px;
 }
 
 .PaymentsDetailsElements {
   text-align: left;
   color: black;
+  font-size: 20px;
 }
-.cancelButton{
+.cancelButton {
   background-color: red;
 }
 
@@ -39,6 +41,16 @@
 }
 .carimage {
   width: 150px;
-  height: 70px;
+  height: 100px;
   margin-left: 100px;
+}
+.mapFlex {
+  display: flex;
+}
+.mapWindow {
+  margin-left: 120px;
+}
+.boxheading {
+  margin-bottom: 20px;
+  font-size: 25px;
 }
