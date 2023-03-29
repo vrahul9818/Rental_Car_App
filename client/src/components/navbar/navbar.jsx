@@ -17,6 +17,9 @@ function Navbar() {
     setIsLoggedIn(false);
     navigate("/");
   };
+  const handleBooking = ()=> {
+    navigate('/mybooking')
+  }
 
   return (
     <nav className='navbar'>
@@ -33,7 +36,7 @@ function Navbar() {
       )}
       {isLoggedIn && (
         <div className='navbar-buttons'>
-          <button className='booking-button'>My Booking</button>
+          <button className='booking-button' onClick={handleBooking}>My Booking</button>
           <button className='logout-button' onClick={handleLogout}>
             Logout
           </button>

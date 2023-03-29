@@ -47,7 +47,7 @@ const UserCarDisplay = () => {
       <Navbar />
       <div className='second_bar'>
         <p className='origin'>{origin}</p>
-        <p className='destination'>{destination}</p>
+        <p className='destinations'>{destination}</p>
         <p className='startDate'>{startDate}</p>
         <p className='endDate'>{endDate}</p>
         <button className='modify' onClick={handleModify}>
