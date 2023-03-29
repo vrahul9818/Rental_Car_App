@@ -27,6 +27,9 @@
   text-align: left;
   color: black;
 }
+.cancelButton{
+  background-color: red;
+}
 
 .detailsStage {
   margin-bottom: 40px;

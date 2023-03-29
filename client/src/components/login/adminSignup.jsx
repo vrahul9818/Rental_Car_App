@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './adminsignup.css'
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminSignup = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate()
 
   const handleSignup = () => {
+
    
     if (password&&(password === confirmPassword)){
         const obj = {
@@ -21,12 +25,11 @@ const AdminSignup = (props) => {
         .then(response => {
             console.log(response);
             props.onBackToLogin();
-        
+            navigate('/')
       })
       .catch((error) => {
         console.log(error);
       });
-
     }
   };
 
