@@ -31,6 +31,11 @@
 .detailsStage {
   margin-bottom: 40px;
 }
+.imageFlex {
+  display: flex;
+}
 .carimage {
-  width: 100px;
+  width: 150px;
+  height: 70px;
+  margin-left: 100px;
 }

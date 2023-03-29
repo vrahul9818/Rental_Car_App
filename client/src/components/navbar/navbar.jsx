@@ -26,9 +26,11 @@ function Navbar() {
           alt='Logo'
         />
       </div>
-      <div className='redirectButton'>
-        <Link to='/register'>User Login</Link>
-      </div>
+      {!isLoggedIn && (
+        <div className='redirectButton'>
+          <Link to='/register'>User Login</Link>
+        </div>
+      )}
       {isLoggedIn && (
         <div className='navbar-buttons'>
           <button className='booking-button'>My Booking</button>
