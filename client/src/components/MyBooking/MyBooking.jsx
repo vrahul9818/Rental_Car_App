@@ -29,15 +29,16 @@ function MyBooking() {
   };
 
   const handleCancel = (bookingId) => {
-    
+      
+  
   };
 
   return (
     <div className="previous-bookings-container">
       <h1>Previous bookings</h1>
       {bookings.map((booking) => (
-        <div key={booking?.id} className="booking-card">
-          <img src={booking?.carImage} alt={booking?.carName} />
+        <div key={booking?._id} className="booking-card">
+          <img src={booking?.images} alt={booking?.carName} />
           <div className="details">
             <div className="car-details">
                 <div className="car-name">{booking?.carName}</div>
@@ -46,18 +47,18 @@ function MyBooking() {
             <div className="destination-details">
                 <div className="origin-destination">Origin: {booking?.origin}</div>
                 <div className="destination">Destination: {booking?.destination}</div>
-                <div className="start-date">Start Date: {booking?.startDate} </div>
-                <div className="end-date">End Date: {booking?.endDate}</div>
+                <div className="start-date">Start Date: {new Date(booking?.startDate).toLocaleDateString()} </div>
+                <div className="end-date">End Date: {new Date(booking?.endDate).toLocaleDateString()}</div>
             </div>
             <div className="booking-details">
-                <div className="booking-id">Booking ID: {booking?.id}</div>
+                <div className="booking-id">Booking ID: {booking?._id.substring(4, 11)}</div>
                 <div className="booking-date">Booking date :{booking?.bookingDate}</div>
                 <div className="booking-time">Booking time: {booking.bookingTime}</div>
             </div>
 
             <div className="booking-actions">
-                <button className="edit-button" onClick={() => handleEdit(booking.id)}>Edit</button>
-                <button className="cancel-button" onClick={() => handleCancel(booking?.id)}>Cancel</button>
+                <button className="edit-button" onClick={() => handleEdit(booking._id)}>Edit</button>
+                <button className="cancel-button" onClick={handleCancel(booking?._id)}>Cancel</button>
           </div>
           </div>
           

@@ -5,7 +5,7 @@ label {
 }
 
 /* Style for form input fields */
-input[type="text"],
+/* input[type="text"],
 input[type="number"],
 select,
 textarea {
@@ -16,7 +16,7 @@ textarea {
   border: 1px solid #ccc;
   box-sizing: border-box;
   margin-bottom: 10px;
-}
+} */
 
 /* Style for form select fields */
 select {
