@@ -74,7 +74,7 @@ const AdminCarDisplay = () => {
           {data.map((key, index) => {
             return (
               <>
-                <div className='car_card'>
+                <section className='car_card'>
                   <img
                     onDoubleClick={() => {
                       adminCarDisplayEditDelete(key);
@@ -83,21 +83,26 @@ const AdminCarDisplay = () => {
                     src={url + `/images/${key?.images[0]}`}
                     alt='image'
                   />
-                  <p className='car_passenger'>6 passenger</p>
+                  <article className='car_passenger'>6 passenger</article>
                   <div className='car_detail'>
-                    <p className='carName'>{key.carName}</p>
-                    <p className='car_price'>200 rs/km</p>
+                    <article className='carName'>{key.carName}</article>
+                    <article className="car-type">{key.carType}-{key.model}</article>
+                    {/* <article className="car-desc">{key.description}</article> */}
+                    <article className='car_price'>{key.perKm} rs/km</article>
                   </div>
                   <div className='admin_car_dateFrom_dateTo'>
-                    <p className='available_heading'>Available Date: </p>
-                    <p className='available_from'>
-                      {dateToNumeric(key.availableFrom)}
-                    </p>
-                    <p className='available_to'>
-                      {dateToNumeric(key.availableTo)}
-                    </p>
+                    <article className='available_heading'>Available: </article>
+                    <article className='availableTo-from'>
+                      {dateToNumeric(key.availableFrom)} - {dateToNumeric(key.availableTo)}
+                    </article>
                   </div>
-                </div>
+                  <div className="edit-btn">
+                    <button className="edit" onClick={() => {
+                      adminCarDisplayEditDelete(key);
+                    }}>Edit</button>
+                  </div>
+
+                </section>
               </>
             );
           })}

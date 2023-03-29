@@ -100,10 +100,10 @@
   
   .card {
     width: 300px;
-    height: 260px;
+    height: 327px;
     background-color: #fff;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 24px;
     overflow: hidden;
     margin-bottom: 20px;
   }
