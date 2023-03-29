@@ -1,14 +1,17 @@
 import React from 'react'
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useContext } from 'react';
 import axios from 'axios';
 import './MyBooking.css'
+import { DataContext } from '../user_booking/user_data_context';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function MyBooking() {
-
+  const navigate = useNavigate();
   const url = "http://localhost:8080/car_rent/myBooking";
   const [bookings, setBookings] = useState([]);
+  const {ubookingid,setuBookingid } = useContext(DataContext);
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
@@ -23,22 +26,32 @@ function MyBooking() {
         });
 }, []);
 
-
   const handleEdit = (bookingId) => {
-    
+    setuBookingid(bookingId);
+    navigate("/editMybooking")
+    console.log(ubookingid);
   };
 
-  const handleCancel = (bookingId) => {
-      
-  
+  const handleCancel = (cancelId) => {
+    console.log(cancelId);
+    axios
+      .delete("http://localhost:8080/car_rent/userBooking/Delete", {
+        data: { cancelId: cancelId },
+      })
+      .then((response) => {
+        console.log(response, "response axios");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      window.location.reload()
   };
-
   return (
     <div className="previous-bookings-container">
       <h1>Previous bookings</h1>
       {bookings.map((booking) => (
         <div key={booking?._id} className="booking-card">
-          <img src={booking?.images} alt={booking?.carName} />
+         <img src={`http://localhost:8080/car_rent/myBooking/images/${booking.images}`} alt={booking?.carName} />
           <div className="details">
             <div className="car-details">
                 <div className="car-name">{booking?.carName}</div>
@@ -53,12 +66,11 @@ function MyBooking() {
             <div className="booking-details">
                 <div className="booking-id">Booking ID: {booking?._id.substring(4, 11)}</div>
                 <div className="booking-date">Booking date :{booking?.bookingDate}</div>
-                <div className="booking-time">Booking time: {booking.bookingTime}</div>
+                <div className="booking-time">Booking time: {booking?.bookingTime}</div>
             </div>
-
             <div className="booking-actions">
-                <button className="edit-button" onClick={() => handleEdit(booking._id)}>Edit</button>
-                <button className="cancel-button" onClick={handleCancel(booking?._id)}>Cancel</button>
+                <button className="edit-button" onClick={() => handleEdit(booking?._id)}>Edit</button>
+                <button className="cancel-button" onClick={() => handleCancel(booking?._id)}>Cancel</button>
           </div>
           </div>
           

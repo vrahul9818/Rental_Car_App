@@ -11,6 +11,7 @@ import AdminCarDisplay from "./components/AdminCarDisplay/adminCarDisplay";
 import Register from "./components/login/register";
 import AdminCarEditDelete from "./components/adminCarEdit/adminCarEditDelete";
 import CarPayment from "./components/CarPayment/CarPayment";
+import EditMYbooking from "./components/user_booking/editMybooking";
 
 
 function App() {
@@ -66,6 +67,17 @@ function App() {
               </DataProvider>
             }
           />
+          <Route
+            path='/editMybooking'
+            element={
+              <DataProvider>
+                <EditMYbooking/>
+              </DataProvider>
+            }
+          />
+
+
+
         </Routes>
       </BrowserRouter>
       {/* >>>>>>> 7e11fda41ca6e7522518396897ac72b16fbbe18b */}

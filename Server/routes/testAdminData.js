@@ -141,7 +141,7 @@ router.put("/adminCarData/Edit", async (req, res) => {
     }
   });
   
-  router.delete("/adminCarData/Delete", async (req, res) => {
+  router.delete("/myBooking/Delete", async (req, res) => {
     const uid = req.body.uid;
     try {
       const deletedCar = await AdminCarModel.findByIdAndDelete(uid);

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const SECRET_ID = "j";
 const jwt = require("jsonwebtoken");
+const path = require("path");
 
 const app = express();
 
@@ -28,9 +29,7 @@ router.get("/myBooking", async (req, res) => {
   try {
     const token = req.headers.authorization.split("Bearer")[1];
     const decoded = jwt.verify(token, SECRET_ID);
-    console.log(decoded);
     const User_data = await UserModel.findOne({ _id: decoded.data.unique_id });
-    console.log(User_data);
     const carsDetail = await BookingModel.find({
       User_id: decoded.data.unique_id,
     });
@@ -40,5 +39,45 @@ router.get("/myBooking", async (req, res) => {
     res.status(500).send("Error fetching data");
   }
 });
+///////////imageDisplay/////
+router.get("/myBooking/images/:filename", async (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", `/imageUpload/${req.params.filename}`)
+  );
+});
+
+/////delete////////
+router.delete("/userBooking/Delete", async (req, res) => {
+  const delId =  (req.body.cancelId);
+  console.log(delId);
+
+  try {
+    const deletedBooking = await BookingModel.findByIdAndDelete(delId);
+    console.log(deletedBooking);
+    if (!deletedBooking) {
+      return res.status(404).send("Car not found");
+    }
+    res.send("Car deleted successfully");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+/////////////////////////////edit booking///////
+router.get("/myBooking/editdataDisplay", async (req, res) => {
+
+  const uniqueEditId = req.body.unique_key;
+  console.log(uniqueEditId);
+  try {
+    const editData_data = await BookingModel.findOne({ _id: uniqueEditId });
+    res.status(200).send(editData_data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error fetching data");
+  }
+});
+
+
+
 
 module.exports = router;
