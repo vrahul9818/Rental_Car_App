@@ -4,8 +4,9 @@ import { DataContext } from "../user_booking/user_data_context";
 import { useEffect } from "react";
 import axios from "axios";
 import useRazorpay from "react-razorpay";
+import useRazorpay from "react-razorpay";
 import "./CarPayment.css";
-
+import Navbar from "../navbar/navbar";
 const CarPayment = () => {
 
   const Razorpay = useRazorpay();
@@ -124,7 +125,7 @@ const CarPayment = () => {
         </p>
         <button onClick={()=>{RazorPayDisp(`${300000}`)}}  >PROCEED</button>
       </div>
-    </div>
+    </>
   );
 };
 

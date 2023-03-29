@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './usersignup.css'
+import { useNavigate } from "react-router-dom";
 
 const UserSignup = (props) => {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ const UserSignup = (props) => {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate()
 
   const handleSignup = () => {
    
@@ -23,6 +25,7 @@ const UserSignup = (props) => {
         .then(response => {
             console.log(response);
             props.onBackToLogin();
+            navigate('/register')
         
       })
       .catch((error) => {
